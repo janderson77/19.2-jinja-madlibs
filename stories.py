@@ -1,4 +1,3 @@
-
 """Madlibs Stories."""
 
 
@@ -19,9 +18,10 @@ class Story:
         'I love to eat a good mango.'
     """
 
-    def __init__(self, words, text):
+    def __init__(self, code, title, words, text):
         """Create story with words and template text."""
-
+        self.code = code
+        self.title = title
         self.prompts = words
         self.template = text
 
@@ -39,8 +39,15 @@ class Story:
 # Here's a story to get you started
 
 
-story = Story(
+story1 = Story("history", "An Exciting Adventure",
     ["place", "noun", "verb", "adjective", "plural_noun"],
     """Once upon a time in a long-ago {place}, there lived a
        large {adjective} {noun}. It loved to {verb} {plural_noun}."""
 )
+
+story2 = Story("nonsense", "Utter nonsesnse",
+    ["place", "noun", "verb"],
+    """Holy crap! At the {place}, a {noun} totally did {verb} with another {noun}."""
+)
+
+stories = {s.code: s for s in [story1, story2]}
